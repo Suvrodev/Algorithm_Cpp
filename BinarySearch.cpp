@@ -5,7 +5,6 @@ class Suvrodev
 public:
 
     int med;
-    ///void input();
     int Binary_Search(int,int[],int,int);
 };
 
@@ -30,16 +29,16 @@ int Suvrodev::Binary_Search(int end1,int Array[],int item,int beg)
         Binary_Search(end1,Array,item,beg);
     }
     }
-
-    ///return -1;
 }
 int main()
 {
-    int Array[100],i,item,end1,med,beg;
+    cout<<"Binary Search"<<endl;
+    int i,item,end1,med,beg;
     Suvrodev s;
     int return_Type;
     cout<<"Enter Limit=";
     cin>>end1;
+    int Array[end1];
     cout<<"INPUT HERE"<<endl;
     for(i=1;i<=end1;i++)
     {
