@@ -41,7 +41,7 @@ void Suvrodev::Delete_multiple(int data[], int& data_size, int& amount) {
     }
 }
 void Suvrodev::Delete_multiple2(int data[], int& data_size, int& amount) {
-    if(amount){ //NEEDS ORIGINAL INDICES BEFORE CALLING THIS METHOD
+    if(amount){ //NEEDS ORIGINAL INDICES FROM BEFORE CALLING THIS METHOD
         int index;
         cout << "Write the index to delete : ";
         cin >> index;
