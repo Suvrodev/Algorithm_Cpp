@@ -3,58 +3,50 @@ using namespace std;
 class Suvrodev
 {
 public:
-
-    int med;
-    int Binary_Search(int,int[],int,int);
+    int Mid;
+    int binary_search(int*,int,int,int);
 };
-
-int Suvrodev::Binary_Search(int end1,int Array[],int item,int beg)
+int Suvrodev::binary_search(int* Data,int begin,int end,int search_n)
 {
-    if(beg<=end1)
+    if(begin<=end)
     {
-        med=(beg+end1)/2;
-    if(item==Array[med])
-    {
-        cout<<"Number found At "<<med<<" Number position";
-        return -1;
-    }
-    if(item<=Array[med])
-    {
-        end1=med-1;
-        Binary_Search(end1,Array,item,beg);
-    }
-    else
-    {
-        beg=med+1;
-        Binary_Search(end1,Array,item,beg);
-    }
+        Mid=(begin+end)/2;
+        if(search_n==Data[Mid])
+        {
+            cout<<search_n<<" found at "<<Mid<<" Number Position"<<endl;
+            return -1;
+        }
+        else if(search_n<Data[Mid])
+        {
+            binary_search(Data,begin,Mid-1,search_n);
+        }
+        else
+        {
+            binary_search(Data,Mid+1,end,search_n);
+        }
     }
 }
 int main()
 {
     cout<<"Binary Search"<<endl;
-    int i,item,end1,med,beg;
-    Suvrodev s;
-    int return_Type;
-    cout<<"Enter Limit=";
-    cin>>end1;
-    int Array[end1];
-    cout<<"INPUT HERE"<<endl;
-    for(i=1;i<=end1;i++)
+    Suvrodev v;
+    int begin=1,Limit,search_n;
+    cout<<"Enter the Limit of Array:";
+    cin>>Limit;
+    int Data[Limit];
+    cout<<"Enter Element from here"<<endl;
+    for(int i=begin;i<=Limit;i++)
     {
-       cout<<i<<". Input=";
-       cin>>Array[i];
+        cout<<i<<". Enter Input:";
+        cin>>Data[i];
+    }
+    cout<<"Enter Your search item:";
+    cin>>search_n;
+    int result_of=v.binary_search(Data,begin,Limit,search_n);
+    if(result_of!=-1)
+    {
+        cout<<search_n<<" not found"<<endl;
     }
 
-    cout<<"Enter Your Search item=";
-    cin>>item;
-    beg=1;
-
-
-    return_Type=s.Binary_Search(end1,Array,item,beg);
-    if(return_Type!=-1)
-    {
-        cout<<"Not Found";
-    }
+    return 0;
 }
-
